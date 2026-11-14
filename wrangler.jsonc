@@ -1,0 +1,21 @@
+{
+  // Nome do app na Cloudflare. Precisa ser igual ao nome do Worker no painel.
+  "name": "travel-atlas",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-01",
+
+  // Arquivos do site (HTML, ícones, manifest). Servidos direto pela Cloudflare, sem custo.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  "observability": { "enabled": true },
+
+  // Modelos usados. Para economizar mais, troque MODEL_MAIN por "claude-haiku-5-5".
+  // A chave da API e o código de acesso NÃO ficam aqui: são "secrets" no painel da Cloudflare.
+  "vars": {
+    "MODEL_MAIN": "claude-sonnet-5-5",
+    "MODEL_FAST": "claude-haiku-5-5"
+  }
+}
