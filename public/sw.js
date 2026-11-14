@@ -1,7 +1,7 @@
 /* Atlas de Bolso — service worker
    Rede primeiro para o app (você sempre recebe a versão nova quando há internet),
    cópia guardada quando está offline. A API nunca passa pelo cache. */
-const CACHE = "atlas-shell-v2";
+const CACHE = "atlas-shell-v3";
 const SHELL = ["/", "/manifest.webmanifest", "/icons/icon.svg", "/icons/icon-192.png", "/icons/apple-touch-icon.png"];
 const CDN = ["https://cdnjs.cloudflare.com/", "https://fonts.googleapis.com/", "https://fonts.gstatic.com/"];
 
