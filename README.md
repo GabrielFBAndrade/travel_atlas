@@ -68,4 +68,4 @@ wrangler.jsonc     configuração da Cloudflare
 ## Atualizações
 Todo envio (`push`) para a branch `main` publica sozinho em cerca de 1 minuto.
 
-Dados de mapa © OpenStreetMap, tiles © CARTO. Cotação: ExchangeRate-API.
+Dados e mapas © colaboradores do OpenStreetMap. Cotação: ExchangeRate-API.

@@ -20,17 +20,28 @@ const ANTHROPIC_VERSION = "2023-06-01";
 const MAX_PROMPT_CHARS = 14000;
 
 /* Cada tarefa tem modelo e teto de tokens definidos AQUI, no servidor.
-   O navegador só escolhe a tarefa — nunca o modelo nem o tamanho da resposta. */
+   O navegador só escolhe a tarefa — nunca o modelo nem o tamanho da resposta.
+   O teto (maxTokens) é só um limite de segurança: a cobrança é pelo que o modelo realmente escreve. */
 const TASKS = {
-  city:     { tier: "main", maxTokens: 4500 },               // roteiro de uma cidade
-  transfer: { tier: "main", maxTokens: 3000 },               // opções entre cidades
-  home:     { tier: "main", maxTokens: 1800 },               // volta para casa
-  guide:    { tier: "fast", maxTokens: 3500, search: 3 },    // guia do país (com busca na web)
-  near:     { tier: "fast", maxTokens: 900 },                // comida, fotos e descanso por perto
-  suggest:  { tier: "fast", maxTokens: 1400 },               // sugerir atrações
-  locate:   { tier: "fast", maxTokens: 500 },                // localizar um lugar digitado
-  pick:     { tier: "fast", maxTokens: 400 },                // "me surpreenda" sem destino
+  city:     { tier: "main", maxTokens: 9000 },               // roteiro de uma cidade
+  transfer: { tier: "main", maxTokens: 5000 },               // opções entre cidades
+  home:     { tier: "main", maxTokens: 3500 },               // volta para casa
+  guide:    { tier: "fast", maxTokens: 7000, search: 3 },    // guia do país (com busca na web)
+  near:     { tier: "fast", maxTokens: 2500 },               // comida, fotos e descanso por perto
+  suggest:  { tier: "fast", maxTokens: 3000 },               // sugerir atrações
+  locate:   { tier: "fast", maxTokens: 1500 },               // localizar um lugar digitado
+  pick:     { tier: "fast", maxTokens: 1200 },               // "me surpreenda" sem destino
 };
+
+/* Os modelos 5.5 "pensam" antes de responder (por padrão em esforço alto), e esse raciocínio
+   consome o limite de tokens. Para respostas estruturadas como as nossas, esforço baixo basta:
+   fica mais rápido e mais barato. No Sonnet 5.5 o raciocínio antecipado pode ser desligado
+   com thinking: between_tools. Se um modelo recusar esses campos, o pedido é refeito sem eles. */
+function thinkingConfig(model) {
+  const cfg = { output_config: { effort: "low" } };
+  if (/sonnet-5-5/.test(model)) cfg.thinking = { type: "between_tools" };
+  return cfg;
+}
 
 const SYSTEM =
   "Você é o motor de um app de planejamento de viagens. Responda SOMENTE com o JSON pedido, " +
@@ -111,20 +122,27 @@ async function claude(request, env) {
   };
   if (task.search) payload.tools = [{ type: "web_search_20250305", name: "web_search", max_uses: task.search }];
 
-  const upstream = await fetch(ANTHROPIC_URL, {
+  const send = body => fetch(ANTHROPIC_URL, {
     method: "POST",
     headers: {
       "content-type": "application/json",
       "x-api-key": env.ANTHROPIC_API_KEY,
       "anthropic-version": ANTHROPIC_VERSION,
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(body),
     signal: request.signal,
   });
 
-  if (!upstream.ok) {
-    let detail = "";
+  let upstream = await send({ ...payload, ...thinkingConfig(model) });
+  let detail = "";
+  if (upstream.status === 400) {
     try { const e = await upstream.json(); detail = e && e.error && e.error.message || ""; } catch {}
+    // Modelo não aceitou a configuração de raciocínio: tenta de novo com os padrões dele.
+    if (/thinking|effort|output_config|between_tools/i.test(detail)) { upstream = await send(payload); detail = ""; }
+  }
+
+  if (!upstream.ok) {
+    if (!detail) { try { const e = await upstream.json(); detail = e && e.error && e.error.message || ""; } catch {} }
     const code = upstream.status === 401 ? "bad_api_key"
       : upstream.status === 429 || upstream.status === 529 ? "rate_limited"
       : upstream.status === 400 && /credit|billing|balance/i.test(detail) ? "no_credit"
