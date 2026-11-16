@@ -46,6 +46,7 @@ O servidor decide o modelo e o tamanho máximo de cada resposta; o navegador só
 | Guia do país (com busca na web) | Haiku 5.5 | Só quando você abre o guia |
 | Comida, fotos e descanso | Haiku 5.5 | Só quando você abre a parada |
 | Sugerir / localizar lugares | Haiku 5.5 | Sob demanda |
+| Ler prints/texto de hospedagens | Haiku 5.5 | Só quando você toca em "Ler com o Claude" |
 | Ordem, horários, distâncias, dólar | — | Calculado no navegador, 0 tokens |
 
 Respostas ficam guardadas no aparelho por 1 a 30 dias: repetir um pedido não gasta tokens. O contador no topo do app mostra chamadas, tokens e o custo estimado.
@@ -53,6 +54,22 @@ Respostas ficam guardadas no aparelho por 1 a 30 dias: repetir um pedido não ga
 Para economizar ainda mais, troque `MODEL_MAIN` por `claude-haiku-5-5` em `wrangler.jsonc`.
 
 ---
+
+## Aba Hospedagem (comparação com pontos)
+
+1. **Pesquise nos sites**: botões para Azul Viagens, Esfera, Livelo, ALL Accor, Smiles, LATAM Pass, Booking, Google Hotéis, Airbnb e Decolar. Booking, Airbnb e Google já abrem com destino e datas do roteiro.
+2. **Traga os resultados**: print da tela ou texto copiado; o Claude (Haiku) lê e monta a tabela. Também dá para lançar ofertas à mão.
+3. **Compare**: custo real de cada opção (pontos × valor do milheiro + parte em dinheiro), em R$ e US$, e quanto rende cada milheiro em relação ao preço em dinheiro do mesmo hotel. A opção escolhida vira a hospedagem do roteiro e entra no orçamento e no PDF.
+
+Os valores do milheiro começam com referências de mercado e podem ser ajustados no app.
+
+## Plano B (remover a aba Hospedagem)
+
+Todo o código da aba fica entre os marcadores `/*LODGING*/ ... /*/LODGING*/`.
+
+- **Remover só a aba:** `python3 tools/plano-b.py` (limpa `public/index.html`) e envie a alteração.
+- **Voltar ao app exatamente como era antes da aba:** a branch `antes-hospedagem` guarda esse estado.
+- A versão do app no chat antes da aba está em `backup/versao-chat-antes-hospedagem.html`.
 
 ## Estrutura
 

@@ -322,6 +322,45 @@ ul.clean li{display:flex;gap:8px;font-size:13.5px}
 .opt ol li span{color:var(--muted)}
 .country-tabs{display:flex;gap:6px;flex-wrap:wrap}
 
+/*LODGING*/
+.srcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.srcbtn{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-sm);text-decoration:none;color:var(--ink);background:var(--bg);transition:border-color .15s}
+.srcbtn:hover{border-color:var(--accent)}
+.srcbtn b{font-size:13.5px}.srcbtn small{font-size:11.5px;color:var(--muted)}.srcbtn .mono{font-size:10.5px;color:var(--accent)}
+.srcbtn.cash{background:var(--surface)}
+.manual summary,.mil summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--accent)}
+.manual[open]{display:flex;flex-direction:column;gap:8px}
+.ltable-wrap{overflow-x:auto}
+.ltable{border-collapse:separate;border-spacing:0;width:100%;font-size:12.5px;min-width:560px}
+.ltable th,.ltable td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.ltable thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600;white-space:nowrap}
+.ltable tbody th{position:sticky;left:0;background:var(--surface);min-width:140px;max-width:200px;z-index:1}
+.ltable tbody th b{display:block;font-size:13px}.ltable tbody th small{color:var(--muted);font-weight:400;font-size:11px}
+.ltable td{position:relative;min-width:118px}
+.ltable td.na{color:var(--muted);text-align:center}
+.cellbtn{border:0;background:transparent;text-align:left;padding:0;display:flex;flex-direction:column;gap:2px;width:100%;color:inherit}
+.cellbtn b{font-family:var(--f-mono);font-weight:500;font-size:12.5px}.cellbtn b small{font-size:10.5px;color:var(--muted)}
+.cellbtn span{font-size:11px;color:var(--muted)}
+.cellbtn i{font-style:normal;font-size:10px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.05em}
+td.best,.lopt.best{background:var(--ok-soft)}
+td.chosen,.lopt.chosen{box-shadow:inset 0 0 0 2px var(--coral)}
+.cellx{position:absolute;top:4px;right:4px;border:0;background:transparent;color:var(--muted);font-size:15px;line-height:1;padding:2px 6px;border-radius:6px;opacity:.55}
+.cellx:hover{opacity:1;background:var(--sunken)}
+.good{color:var(--ok)!important;font-weight:600}.bad{color:var(--bad)!important;font-weight:600}
+.bestcol b{font-family:var(--f-mono);font-weight:500;display:block}.bestcol span{display:block;font-size:11px;color:var(--muted)}
+.bestcol em{font-style:normal;font-size:10.5px;font-weight:700;color:var(--ok)}.bestcol em.cashv{color:var(--accent)}
+.lcards{display:none;flex-direction:column;gap:10px}
+.lcard{border:1px solid var(--line);border-radius:var(--r-sm);padding:12px;display:flex;flex-direction:column;gap:6px}
+.lcard header{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.lcard header b{font-size:14px}
+.lcard header span{font-family:var(--f-mono);text-align:right;display:flex;flex-direction:column}.lcard header small{font-size:10.5px;color:var(--muted)}
+.lopt{position:relative;border-radius:8px;padding:8px 28px 8px 10px;background:var(--bg)}
+.lopt .cellbtn{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;align-items:baseline}
+.lopt .src{font-size:12.5px;color:var(--ink);font-weight:600}.lopt .sub{grid-column:1/-1}.lopt i{grid-column:1/-1}
+.milgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+@media (max-width:699px){.ltable-wrap{display:none}.lcards{display:flex}}
+@media (min-width:900px){.app[data-tab="stay"]{grid-template-columns:minmax(380px,62%) minmax(0,1fr)}}
+/*/LODGING*/
 /* overlays */
 .drawer{position:fixed;inset:0;z-index:40;background:rgba(6,14,20,.4);display:flex;justify-content:flex-end}
 .drawer-panel{width:min(420px,100%);height:100%;background:var(--surface);padding-block:max(18px,env(safe-area-inset-top,0px)) 18px;padding-left:18px;padding-right:max(18px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:14px;overflow:auto;box-shadow:var(--shadow)}
@@ -503,7 +542,7 @@ u_counts:"Neste aparelho: {n} chamadas · {i} tokens enviados · {o} recebidos �
 thinking:"Pensando…",building:"Roteiro de {c}",picking:"Escolhendo destinos surpresa",loadingTransfers:"Trechos entre cidades",loadingNear:"Buscando lugares por perto",loadingGuide:"Guia de {c}",loadingHome:"Calculando a volta",loadingRoute:"Comparando opções",loadingSugg:"Buscando sugestões",loadingAdd:"Localizando o lugar",received:"{n} caracteres",stopBtn:"Parar",
 e_unavailable:"O Claude não está disponível nesta visualização. Abra a página pelo claude.ai.",e_not_granted:"O uso do Claude não foi autorizado nesta página.",e_rate:"Muitas chamadas seguidas. Tente de novo em instantes.",e_json:"A resposta veio incompleta. Tente de novo.",e_refused:"O Claude não pôde responder a esse pedido. Mude o texto e tente de novo.",e_generic:"Não deu certo agora. Tente de novo.",e_session:"Sua sessão expirou. Entre de novo no claude.ai.",
 needDest:"Diga para onde você vai ou use Me surpreenda.",copied:"Copiado",copyFail:"Não consegui copiar. Selecione o texto manualmente.",savedToast:"Roteiro salvo neste navegador",notFound:"Não encontrei esse lugar nesta cidade.",added:"Adicionado ao {d}",cancelled:"Cancelado",partial:"Algumas cidades não foram geradas. Use o botão para tentar de novo.",missingBase:"{c} ainda não foi gerada.",genBase:"Gerar {c}",
-u_cache:"Respostas guardadas neste aparelho por 1 a 30 dias: repetir um pedido não gasta tokens",e_truncated:"O roteiro ficou longo demais para uma resposta. Tente menos dias por cidade ou o ritmo Tranquilo.",e_auth:"Código de acesso incorreto.",e_config:"O app ainda não está configurado na Cloudflare (falta a chave da API ou o código de acesso).",e_key:"A chave da API foi recusada. Confira o secret ANTHROPIC_API_KEY na Cloudflare.",e_credit:"Sem créditos na conta da API. Adicione créditos no Claude Console.",e_network:"Sem conexão. Verifique a internet e tente de novo.",gateText:"Digite o código de acesso para usar o planejador.",gateBtn:"Entrar",gateChecking:"Conferindo…",gateBad:"Código incorreto. Tente de novo.",gateOffline:"Sem conexão. Você ainda pode ver os roteiros salvos.",logout:"Sair (esquecer o código neste aparelho)",exportTrip:"Exportar roteiro",importTrip:"Importar roteiro",importOk:"Roteiro importado",importBad:"Arquivo inválido.",transferHint:"Use exportar e importar para levar um roteiro do computador para o celular.",sources:"Fontes consultadas",offlineMap:"O mapa precisa de internet para carregar.",fxLive:"Cotação do dia",newTrip:"Novo roteiro",newQ:"Começar um roteiro novo?",newQSave:"O roteiro atual fica guardado em Meus roteiros. O formulário volta em branco (nacionalidade, cidade de casa e preferências são mantidas).",newQEx:"O formulário volta em branco (nacionalidade, cidade de casa e preferências são mantidas).",newYes:"Começar do zero",newDone:"Formulário limpo. Pode começar.",newDoneSaved:"Roteiro anterior guardado em Meus roteiros. Formulário limpo.",welcomeQ:"Bem-vindo de volta",welcomeTxt:"Quer continuar o roteiro {t} ou começar um novo?",welcomeGo:"Continuar",planOf:"Editando: {t}",ph_rfrom:"Ex.: Osaka, Japão",ph_rto:"Ex.: Sapporo, Japão",ph_nat:"Ex.: Brasil",ph_home:"Ex.: Rio de Janeiro",pdfBtn:"Baixar PDF",pdfCurrent:"Baixar PDF do roteiro atual",pdfMaking:"Montando o PDF…",pdfSaved:"PDF pronto",pdfFail:"Não consegui montar o PDF. Tente de novo.",pdfLibFail:"Não consegui carregar o gerador de PDF. Verifique a conexão.",pdfNoDl:"Não foi possível baixar o PDF neste navegador.",pdfWait:"Aguarde o download anterior.",emptyTrip:"Nenhum roteiro ainda.",goPlan:"Ir para Planejar",free_:"grátis",moving:"em deslocamento",
+u_cache:"Respostas guardadas neste aparelho por 1 a 30 dias: repetir um pedido não gasta tokens",e_truncated:"O roteiro ficou longo demais para uma resposta. Tente menos dias por cidade ou o ritmo Tranquilo.",e_auth:"Código de acesso incorreto.",e_config:"O app ainda não está configurado na Cloudflare (falta a chave da API ou o código de acesso).",e_key:"A chave da API foi recusada. Confira o secret ANTHROPIC_API_KEY na Cloudflare.",e_credit:"Sem créditos na conta da API. Adicione créditos no Claude Console.",e_network:"Sem conexão. Verifique a internet e tente de novo.",gateText:"Digite o código de acesso para usar o planejador.",gateBtn:"Entrar",gateChecking:"Conferindo…",gateBad:"Código incorreto. Tente de novo.",gateOffline:"Sem conexão. Você ainda pode ver os roteiros salvos.",logout:"Sair (esquecer o código neste aparelho)",exportTrip:"Exportar roteiro",importTrip:"Importar roteiro",importOk:"Roteiro importado",importBad:"Arquivo inválido.",transferHint:"Use exportar e importar para levar um roteiro do computador para o celular.",sources:"Fontes consultadas",offlineMap:"O mapa precisa de internet para carregar.",fxLive:"Cotação do dia",newTrip:"Novo roteiro",newQ:"Começar um roteiro novo?",newQSave:"O roteiro atual fica guardado em Meus roteiros. O formulário volta em branco (nacionalidade, cidade de casa e preferências são mantidas).",newQEx:"O formulário volta em branco (nacionalidade, cidade de casa e preferências são mantidas).",newYes:"Começar do zero",newDone:"Formulário limpo. Pode começar.",newDoneSaved:"Roteiro anterior guardado em Meus roteiros. Formulário limpo.",welcomeQ:"Bem-vindo de volta",welcomeTxt:"Quer continuar o roteiro {t} ou começar um novo?",welcomeGo:"Continuar",planOf:"Editando: {t}",ph_rfrom:"Ex.: Osaka, Japão",ph_rto:"Ex.: Sapporo, Japão",ph_nat:"Ex.: Brasil",ph_home:"Ex.: Rio de Janeiro",pdfBtn:"Baixar PDF",pdfCurrent:"Baixar PDF do roteiro atual",pdfMaking:"Montando o PDF…",pdfSaved:"PDF pronto",pdfFail:"Não consegui montar o PDF. Tente de novo.",pdfLibFail:"Não consegui carregar o gerador de PDF. Verifique a conexão.",pdfNoDl:"Não foi possível baixar o PDF neste navegador.",pdfWait:"Aguarde o download anterior.",/*LODGING*/tabStay:"Hospedagem",lTitle:"Onde ficar em",lIntro:"Compare hotéis em reais, dólares e pontos. O app mostra o custo real de cada opção e quanto rende cada milheiro.",lGuests:"Hóspedes",lNights:"{n} noite(s)",lNoDates:"Informe as datas para comparar o preço da estadia.",lStep1:"1. Pesquise nos sites",lStep1Txt:"Cada botão abre a busca do site. Booking, Airbnb e Google já abrem com destino e datas; nos outros, destino e datas são copiados para você colar.",lPoints:"Com pontos",lCash:"Em dinheiro",lCheck:"confirme se há hotéis",lMilRef:"milheiro",lDeep:"abre já filtrado",lCopy:"copia destino e datas",lCopied:"Copiado: {t}",lStep2:"2. Traga os resultados",lStep2Txt:"Tire print da lista de hotéis ou copie o texto da página de resultados e cole aqui. O Claude lê e monta a tabela.",lFrom:"De qual site",lAuto:"Detectar automaticamente",lShots:"Prints da tela (até 4)",lPastePh:"Ou cole aqui o texto copiado da página de resultados",lReadBtn:"Ler com o Claude",lReadNote:"1 chamada rápida ao Claude por leitura.",lReading:"Lendo os resultados",lNothing:"Adicione um print ou cole o texto primeiro.",lImgBad:"Não consegui abrir a imagem. Tente outro print.",lNone:"Não encontrei ofertas nesse conteúdo.",lAdded:"{n} ofertas adicionadas",lManual:"Adicionar uma oferta à mão",lHotel:"Hotel",lPtsPh:"Pontos (ex.: 45000)",lBrlPh:"Valor total em R$",lPlusBrl:"+ R$ (se houver)",lManualMissing:"Preencha o hotel e o valor.",lStep3:"3. Compare",lEmpty:"Nenhuma oferta ainda. Pesquise nos sites e traga os resultados no passo 2.",lBest:"Melhor custo real",lUsePts:"use pontos",lPayCash:"pague em dinheiro",lChooseTip:"Toque para escolher esta opção para o roteiro",lChosen:"escolhida",lHow:"Custo real = pontos × seu valor do milheiro + a parte em dinheiro. O valor por milheiro mostra quanto cada 1.000 pontos rendem comparado ao preço em dinheiro do mesmo hotel: verde, vale usar pontos; vermelho, melhor pagar em dinheiro. Toque numa opção para escolhê-la: ela entra no roteiro, no orçamento e no PDF.",lClear:"Limpar ofertas desta cidade",lMilTitle:"Valor do milheiro (R$ por 1.000 pontos)",lMilTxt:"Quanto custa para você cada 1.000 pontos em cada programa. Começa com referências de mercado; ajuste se você compra ou acumula mais barato.",lMilSrc:"Referências: Smiles, LATAM Pass e Azul (Cartões e Viagens, jun/2026); Livelo e Esfera (preço de compra, Melhores Destinos, set/2026); ALL Accor (valor de face: 2.000 pts = €40).",lExample:"Ofertas de exemplo para Lisboa (valores ilustrativos). Monte o seu roteiro e traga os resultados reais.",lPdfTitle:"Comparação de hospedagens",/*/LODGING*/emptyTrip:"Nenhum roteiro ainda.",goPlan:"Ir para Planejar",free_:"grátis",moving:"em deslocamento",
 },
 en:{tagline:"trip planner",tabPlan:"Plan",tabTrip:"Itinerary",tabMap:"Map",tabGuide:"Guide",saved:"My trips",usage:"AI · {n} calls · ≈ {cost}",
 q_dest:"Where are you going?",destHint:"Add cities in travel order. They can be in different countries.",ph_place:"City, country. e.g. Osaka, Japan",ph_stay:"Stay (optional): hotel or neighborhood",addDest:"Add destination",daysUnit:"days",day1:"day",
@@ -542,7 +581,7 @@ u_counts:"On this device: {n} calls · {i} tokens sent · {o} received · {s} se
 thinking:"Thinking…",building:"{c} itinerary",picking:"Picking surprise destinations",loadingTransfers:"Legs between cities",loadingNear:"Finding places nearby",loadingGuide:"{c} guide",loadingHome:"Planning the trip home",loadingRoute:"Comparing options",loadingSugg:"Finding suggestions",loadingAdd:"Locating the place",received:"{n} characters",stopBtn:"Stop",
 e_unavailable:"Claude isn't available in this view. Open the page from claude.ai.",e_not_granted:"Claude wasn't allowed on this page.",e_rate:"Too many calls in a row. Try again in a moment.",e_json:"The answer came back incomplete. Try again.",e_refused:"Claude couldn't answer that request. Change the text and try again.",e_generic:"That didn't work. Try again.",e_session:"Your session expired. Sign in to claude.ai again.",
 needDest:"Tell us where you're going, or use Surprise me.",copied:"Copied",copyFail:"Couldn't copy. Select the text manually.",savedToast:"Trip saved in this browser",notFound:"Couldn't find that place in this city.",added:"Added to {d}",cancelled:"Cancelled",partial:"Some cities weren't generated. Use the button to try again.",missingBase:"{c} hasn't been generated yet.",genBase:"Generate {c}",
-u_cache:"Answers are kept on this device for 1 to 30 days: repeating a request costs no tokens",e_truncated:"The itinerary was too long for one answer. Try fewer days per city or the Relaxed pace.",e_auth:"Wrong access code.",e_config:"The app isn't configured on Cloudflare yet (missing API key or access code).",e_key:"The API key was rejected. Check the ANTHROPIC_API_KEY secret on Cloudflare.",e_credit:"No credits left on the API account. Add credits in the Claude Console.",e_network:"No connection. Check your internet and try again.",gateText:"Enter the access code to use the planner.",gateBtn:"Enter",gateChecking:"Checking…",gateBad:"Wrong code. Try again.",gateOffline:"No connection. You can still view saved trips.",logout:"Sign out (forget the code on this device)",exportTrip:"Export trip",importTrip:"Import trip",importOk:"Trip imported",importBad:"Invalid file.",transferHint:"Use export and import to move a trip from your computer to your phone.",sources:"Sources consulted",offlineMap:"The map needs an internet connection to load.",fxLive:"Today's rate",newTrip:"New trip",newQ:"Start a new trip?",newQSave:"The current trip is kept in My trips. The form goes blank (nationality, home city and preferences are kept).",newQEx:"The form goes blank (nationality, home city and preferences are kept).",newYes:"Start fresh",newDone:"Form cleared. You can start.",newDoneSaved:"Previous trip kept in My trips. Form cleared.",welcomeQ:"Welcome back",welcomeTxt:"Continue the {t} trip or start a new one?",welcomeGo:"Continue",planOf:"Editing: {t}",ph_rfrom:"e.g. Osaka, Japan",ph_rto:"e.g. Sapporo, Japan",ph_nat:"e.g. Brazil",ph_home:"e.g. Rio de Janeiro",pdfBtn:"Download PDF",pdfCurrent:"Download PDF of the current trip",pdfMaking:"Building the PDF…",pdfSaved:"PDF ready",pdfFail:"Couldn't build the PDF. Try again.",pdfLibFail:"Couldn't load the PDF generator. Check your connection.",pdfNoDl:"Couldn't download the PDF in this browser.",pdfWait:"Wait for the previous download.",emptyTrip:"No itinerary yet.",goPlan:"Go to Plan",free_:"free",moving:"moving",
+u_cache:"Answers are kept on this device for 1 to 30 days: repeating a request costs no tokens",e_truncated:"The itinerary was too long for one answer. Try fewer days per city or the Relaxed pace.",e_auth:"Wrong access code.",e_config:"The app isn't configured on Cloudflare yet (missing API key or access code).",e_key:"The API key was rejected. Check the ANTHROPIC_API_KEY secret on Cloudflare.",e_credit:"No credits left on the API account. Add credits in the Claude Console.",e_network:"No connection. Check your internet and try again.",gateText:"Enter the access code to use the planner.",gateBtn:"Enter",gateChecking:"Checking…",gateBad:"Wrong code. Try again.",gateOffline:"No connection. You can still view saved trips.",logout:"Sign out (forget the code on this device)",exportTrip:"Export trip",importTrip:"Import trip",importOk:"Trip imported",importBad:"Invalid file.",transferHint:"Use export and import to move a trip from your computer to your phone.",sources:"Sources consulted",offlineMap:"The map needs an internet connection to load.",fxLive:"Today's rate",newTrip:"New trip",newQ:"Start a new trip?",newQSave:"The current trip is kept in My trips. The form goes blank (nationality, home city and preferences are kept).",newQEx:"The form goes blank (nationality, home city and preferences are kept).",newYes:"Start fresh",newDone:"Form cleared. You can start.",newDoneSaved:"Previous trip kept in My trips. Form cleared.",welcomeQ:"Welcome back",welcomeTxt:"Continue the {t} trip or start a new one?",welcomeGo:"Continue",planOf:"Editing: {t}",ph_rfrom:"e.g. Osaka, Japan",ph_rto:"e.g. Sapporo, Japan",ph_nat:"e.g. Brazil",ph_home:"e.g. Rio de Janeiro",pdfBtn:"Download PDF",pdfCurrent:"Download PDF of the current trip",pdfMaking:"Building the PDF…",pdfSaved:"PDF ready",pdfFail:"Couldn't build the PDF. Try again.",pdfLibFail:"Couldn't load the PDF generator. Check your connection.",pdfNoDl:"Couldn't download the PDF in this browser.",pdfWait:"Wait for the previous download.",/*LODGING*/tabStay:"Stays",lTitle:"Where to stay in",lIntro:"Compare hotels in reais, dollars and points. The app shows each option's real cost and what each thousand points is worth.",lGuests:"Guests",lNights:"{n} night(s)",lNoDates:"Enter dates to compare the price of the stay.",lStep1:"1. Search the sites",lStep1Txt:"Each button opens the site's search. Booking, Airbnb and Google open with destination and dates; for the others, destination and dates are copied for you to paste.",lPoints:"With points",lCash:"With money",lCheck:"check if hotels are offered",lMilRef:"per 1k",lDeep:"opens pre-filled",lCopy:"copies destination and dates",lCopied:"Copied: {t}",lStep2:"2. Bring the results",lStep2Txt:"Take a screenshot of the hotel list or copy the results page text and paste it here. Claude reads it and builds the table.",lFrom:"Which site",lAuto:"Detect automatically",lShots:"Screenshots (up to 4)",lPastePh:"Or paste the text copied from the results page",lReadBtn:"Read with Claude",lReadNote:"1 quick Claude call per read.",lReading:"Reading results",lNothing:"Add a screenshot or paste the text first.",lImgBad:"Couldn't open the image. Try another screenshot.",lNone:"No offers found in that content.",lAdded:"{n} offers added",lManual:"Add an offer manually",lHotel:"Hotel",lPtsPh:"Points (e.g. 45000)",lBrlPh:"Total in R$",lPlusBrl:"+ R$ (if any)",lManualMissing:"Fill in the hotel and the value.",lStep3:"3. Compare",lEmpty:"No offers yet. Search the sites and bring the results in step 2.",lBest:"Best real cost",lUsePts:"use points",lPayCash:"pay in cash",lChooseTip:"Tap to choose this option for the trip",lChosen:"chosen",lHow:"Real cost = points × your value per thousand + the cash part. The value per thousand shows what each 1,000 points are worth against the same hotel's cash price: green, use points; red, pay in cash. Tap an option to choose it: it goes into the trip, the budget and the PDF.",lClear:"Clear offers for this city",lMilTitle:"Value per thousand points (R$ per 1,000)",lMilTxt:"What each 1,000 points costs you in each program. Starts with market references; adjust if you buy or earn them cheaper.",lMilSrc:"References: Smiles, LATAM Pass and Azul (Cartões e Viagens, Jun/2026); Livelo and Esfera (purchase price, Melhores Destinos, Sep/2026); ALL Accor (face value: 2,000 pts = €40).",lExample:"Sample offers for Lisbon (illustrative prices). Build your trip and bring the real results.",lPdfTitle:"Lodging comparison",/*/LODGING*/emptyTrip:"No itinerary yet.",goPlan:"Go to Plan",free_:"free",moving:"moving",
 }};
 function t(k,v){let s=(I18N[S.lang]&&I18N[S.lang][k])??I18N.pt[k]??k;if(v)for(const x in v)s=s.split("{"+x+"}").join(v[x]);return s}
 
@@ -632,7 +671,7 @@ function estLeg(from,to,allowed){const km=Math.round(hav(from,to)*10)/10;const m
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch{return false}}};
 function blankForm(keep){keep=keep||{};return{dests:[{place:"",days:3,stay:""}],date:"",pace:keep.pace||"balanced",budget:keep.budget||"mid",interests:keep.interests?keep.interests.slice():["history","food","photo"],modes:keep.modes?keep.modes.slice():["walk","metro","tram","train","plane"],must:"",fill:true,nat:keep.nat||"",home:keep.home||""}}
 function blankRoute(){return{from:"",to:"",date:"",prio:"balanced",result:null,example:false}}
-const S={lang:"pt",welcome:false,confirmNew:false,tab:"trip",baseIdx:-1,dayIdx:-1,selected:null,jobs:new Map(),suggestions:[],drawer:false,confirmDel:null,usagePop:false,fxEdit:false,fx:{},
+const S={lang:"pt",/*LODGING*/lodging:null,lodgingImg:null,/*/LODGING*/welcome:false,confirmNew:false,tab:"trip",baseIdx:-1,dayIdx:-1,selected:null,jobs:new Map(),suggestions:[],drawer:false,confirmDel:null,usagePop:false,fxEdit:false,fx:{},
   usage:{calls:0,inTok:0,outTok:0},guideCountry:null,
   form:blankForm(),
   trip:null,isExample:true,details:{},guides:{},home:{from:"auto",custom:"",to:"",prio:"balanced",date:"",result:null},
@@ -719,14 +758,14 @@ function chosenOpt(x){return x&&x.options.length?x.options[Math.min(x.chosen||0,
 
 /* ================= persistence ================= */
 let saveT=null;
-function persist(){clearTimeout(saveT);saveT=setTimeout(()=>{LS.set("atlas.lastActive",Date.now());LS.set("atlas.v2.current",{lang:S.lang,form:S.form,trip:S.trip,isExample:S.isExample,details:S.details,guides:S.guides,home:S.home,route:S.route})},300)}
+function persist(){clearTimeout(saveT);saveT=setTimeout(()=>{LS.set("atlas.lastActive",Date.now());LS.set("atlas.v2.current",{lang:S.lang,form:S.form,trip:S.trip,isExample:S.isExample,details:S.details,guides:S.guides,home:S.home,route:S.route/*LODGING*/,lodging:S.lodging/*/LODGING*/})},300)}
 function migrateForm(f){if(!f)return;if(!Array.isArray(f.dests)&&f.dest){f.dests=[{place:f.dest,days:f.days||3,stay:f.start||""}]}["dest","start","days","startKind"].forEach(k=>delete f[k]);if(Array.isArray(f.dests))Object.assign(S.form,f);else{const{dests,...rest}=f;Object.assign(S.form,rest)}}
 function loadState(){let c=LS.get("atlas.v2.current",null);const old=c?null:LS.get("atlas.v1.current",null);
   if(old&&old.trip&&!old.isExample){c={lang:old.lang,form:old.form,trip:upgradeTrip(old.trip),isExample:false,details:old.details,guides:old.guide?{[old.guide.country]:old.guide}:{},home:old.home}}
   else if(old){c={lang:old.lang,form:old.form}}
   if(c){S.lang=c.lang==="en"?"en":"pt";migrateForm(c.form);if(c.route)S.route=Object.assign(S.route,c.route)}
-  if(c&&c.trip){S.trip=upgradeTrip(c.trip);S.isExample=!!c.isExample;S.welcome=!S.isExample&&Date.now()-(LS.get("atlas.lastActive",0)||0)>6*3600e3;S.details=c.details||{};S.guides=c.guides||{};S.home=Object.assign(S.home,c.home||{})}
-  else{S.trip=prepTrip(sampleRaw(),{retime:true});S.isExample=true;S.details=sampleDetails(S.trip);S.guides=sampleGuides();S.home.result=sampleHome();S.home.to="Rio de Janeiro"}
+  if(c&&c.trip){S.trip=upgradeTrip(c.trip);S.isExample=!!c.isExample;S.welcome=!S.isExample&&Date.now()-(LS.get("atlas.lastActive",0)||0)>6*3600e3;S.details=c.details||{};S.guides=c.guides||{};S.home=Object.assign(S.home,c.home||{});/*LODGING*/S.lodging=normLodging(c.lodging);/*/LODGING*/}
+  else{S.trip=prepTrip(sampleRaw(),{retime:true});S.isExample=true;S.details=sampleDetails(S.trip);S.guides=sampleGuides();S.home.result=sampleHome();S.home.to="Rio de Janeiro";/*LODGING*/S.lodging=sampleLodging();/*/LODGING*/}
   if(S.route.example)S.route=blankRoute();
   S.usage=Object.assign({calls:0,inTok:0,outTok:0,cost:0,searches:0},LS.get("atlas.usage",{}));S.fx=LS.get("atlas.v2.fx",{})}
 
@@ -745,9 +784,9 @@ function extractJSON(text){const x=String(text||"").trim();const tries=[x];const
   const ia=[x.indexOf("{"),x.indexOf("[")].filter(i=>i>=0);const a=ia.length?Math.min(...ia):-1;const b=Math.max(x.lastIndexOf("}"),x.lastIndexOf("]"));if(a>=0&&b>a)tries.push(x.slice(a,b+1));
   const lo=x.lastIndexOf("\n{");if(lo>=0&&b>lo)tries.push(x.slice(lo+1,b+1));
   for(const c of tries){try{return JSON.parse(c)}catch{}}return undefined}
-async function streamClaude(task,prompt,{signal,onText}){
+async function streamClaude(task,prompt,{signal,onText,images}){
   let res;
-  try{res=await fetch("/api/claude",{method:"POST",headers:{"content-type":"application/json","x-access-code":accessCode},body:JSON.stringify({task,prompt}),signal})}
+  try{res=await fetch("/api/claude",{method:"POST",headers:{"content-type":"application/json","x-access-code":accessCode},body:JSON.stringify(images&&images.length?{task,prompt,images}:{task,prompt}),signal})}
   catch(e){throw{code:signal&&signal.aborted?"cancelled":"network"}}
   if(!res.ok){let d={};try{d=await res.json()}catch{}if(d.error==="unauthorized"){showGate(t("gateBad"))}throw{code:d.error||"upstream_error",message:d.message}}
   const model=res.headers.get("x-model")||"";const reader=res.body.getReader();const dec=new TextDecoder();
@@ -768,13 +807,13 @@ async function streamClaude(task,prompt,{signal,onText}){
   return{text,cites:[...cites].map(([url,title])=>({url,title}))}}
 function track(model,i,o,s){if(!i&&!o&&!s)return;const p=PRICE[model]||[2,10];const u=S.usage;u.calls++;u.inTok+=i;u.outTok+=o;u.searches=(u.searches||0)+s;u.cost=(u.cost||0)+i/1e6*p[0]+o/1e6*p[1]+s*0.01;LS.set("atlas.usage",u);renderUsage()}
 let jobsRaf=0;function renderJobsSoon(){if(jobsRaf)return;jobsRaf=requestAnimationFrame(()=>{jobsRaf=0;renderJobs()})}
-async function ai(key,label,prompt,{task,cache=true,names=false,ttl=86400000,withCites=false}={}){
+async function ai(key,label,prompt,{task,cache=true,names=false,ttl=86400000,withCites=false,images=null}={}){
   const ck=task+":"+hashStr(prompt);
   if(cache){const hit=cacheGet(ck);if(hit!=null)return hit}
   if(S.jobs.has(key))throw{code:"busy",silent:true};
   if(!accessCode){showGate();throw{code:"unauthorized",silent:true}}
   const ctl=new AbortController();const job={label,chars:0,names:[],ctl};S.jobs.set(key,job);renderJobs();refreshFor(key);
-  try{const r=await streamClaude(task,prompt,{signal:ctl.signal,onText:text=>{job.chars=text.length;if(names)job.names=[...text.matchAll(/"name"\s*:\s*"([^"]{2,80})"/g)].map(m=>m[1]).slice(1);renderJobsSoon()}});
+  try{const r=await streamClaude(task,prompt,{images,signal:ctl.signal,onText:text=>{job.chars=text.length;if(names)job.names=[...text.matchAll(/"name"\s*:\s*"([^"]{2,80})"/g)].map(m=>m[1]).slice(1);renderJobsSoon()}});
     const v=extractJSON(r.text);if(v===undefined)throw{code:"invalid_json"};
     if(withCites&&v&&typeof v==="object"&&!Array.isArray(v))v._sources=r.cites.slice(0,8);
     if(cache)cachePut(ck,v,ttl);return v}
@@ -834,7 +873,7 @@ async function generate(surprise){
     xt.forEach((x,i)=>raw.transfers.push({from:i,to:i+1,...x}));
     if(failed===dests.length)throw lastErr||{code:"invalid_json"};
     const trip=prepTrip(raw);if(!trip)throw{code:"invalid_json"};trip.title=dests.map(d=>cityOf(d.place)).join(" · ");
-    S.trip=trip;S.isExample=false;S.details={};S.guides={};S.guideCountry=null;S.home.result=null;S.home.from="auto";S.home.to=S.form.home;S.selected=null;S.baseIdx=-1;S.dayIdx=-1;S.suggestions=[];
+    S.trip=trip;S.isExample=false;S.details={};S.guides={};/*LODGING*/S.lodging=blankLodging();/*/LODGING*/S.guideCountry=null;S.home.result=null;S.home.from="auto";S.home.to=S.form.home;S.selected=null;S.baseIdx=-1;S.dayIdx=-1;S.suggestions=[];
     persist();renderAll();M.fitted=false;fitMap();animateRoute();if(failed)toast(t("partial"))}
   catch(e){if(!e.silent)toast(errMsg(e))}finally{refreshFor("base")}}
 
@@ -919,7 +958,7 @@ function tripStats(tr){const R={km:0,n:0,local:[0,0],xfer:[0,0],entries:0,food:0
     const b=R.byMode[s.leg.mode]||(R.byMode[s.leg.mode]={lo:0,hi:0,min:0});b.min+=s.leg.min||0;if(s.leg.cost){const x=[0,0];add(x,s.leg.cost,cur);R.local[0]+=x[0];R.local[1]+=x[1];b.lo+=x[0];b.hi+=x[1]}else R.unk++})});
   tr.transfers.forEach(x=>{const o=chosenOpt(x);if(!o||!o.cost)return;const cur=o.currency||tr.bases[x.from]?.currency;const y=[0,0];add(y,o.cost,cur);R.xfer[0]+=y[0];R.xfer[1]+=y[1];
     const b=R.byMode["x_"+o.mode]||(R.byMode["x_"+o.mode]={lo:0,hi:0,min:0,x:true,mode:o.mode});b.lo+=y[0];b.hi+=y[1];b.min+=(o.hours||0)*60});
-  R.total=[R.local[0]+R.xfer[0]+R.entries+R.food,R.local[1]+R.xfer[1]+R.entries+R.food];return R}
+  R.total=[R.local[0]+R.xfer[0]+R.entries+R.food,R.local[1]+R.xfer[1]+R.entries+R.food];/*LODGING*/{const ls=lodgingSpend();R.lodging=ls;R.total[0]+=ls.usd;R.total[1]+=ls.usd}/*/LODGING*/return R}
 function dayStats(d){const cur=baseOf(d).currency;let km=0,lo=0,hi=0,min=0;d.stops.forEach(s=>{km+=s.leg.km||0;min+=s.leg.min||0;if(s.leg.cost){const a=toUSD(s.leg.cost[0],cur),b=toUSD(s.leg.cost[1],cur);if(a!=null){lo+=a;hi+=b}}});return{km,lo,hi,min}}
 const tripCurrencies=tr=>[...new Set([...tr.bases.filter(b=>!b.pending).map(b=>b.currency),...tr.transfers.flatMap(x=>x.options.map(o=>o.currency).filter(Boolean))])].filter(c=>c&&c!=="USD");
 
@@ -936,12 +975,12 @@ function renderAll(){document.documentElement.lang=S.lang==="en"?"en":"pt-BR";$(
   if(S.trip)relabel(S.trip);renderUsage();renderTabs();renderView();renderDetail();drawMap();renderDrawer()}
 function renderUsage(){const u=S.usage;$("usageBtn").innerHTML=ico("spark")+esc(t("usage",{n:u.calls,cost:fmtCost(u.cost||0)}))}
 const fmtCost=v=>v>0&&v<0.01?"< "+fmtCur(0.01,"USD"):fmtCur(Math.round(v*100)/100,"USD");
-function renderTabs(){const tabs=[["plan","route"],["trip","list"],["map","map"],["guide","shield"]];
+function renderTabs(){const tabs=[["plan","route"],["trip","list"],["map","map"],["guide","shield"]/*LODGING*/,["stay","bed"]/*/LODGING*/];
   $("tabs").innerHTML=tabs.map(([k,i])=>`<button role="tab" class="tab-${k}" data-act="tab" data-val="${k}" aria-selected="${S.tab===k}">${ico(i)}${esc(t("tab"+k[0].toUpperCase()+k.slice(1)))}</button>`).join("")}
 function renderJobs(){const el=$("jobs");if(!el)return;
   el.innerHTML=[...S.jobs.entries()].map(([k,j])=>`<div class="job"><div class="job-row"><b>${esc(j.label)}</b><span class="muted mono" style="font-size:11px">${j.chars?esc(t("received",{n:j.chars})):esc(t("thinking"))}</span><button class="btn" data-act="stopJob" data-val="${esc(k)}">${ico("x")}${esc(t("stopBtn"))}</button></div><div class="bar"></div>${j.names.length?`<div class="found">${j.names.slice(-12).map(n=>`<span>${esc(n)}</span>`).join("")}</div>`:""}</div>`).join("")}
 function renderView(){const v=$("view");const tab=S.tab==="map"?"trip":S.tab;
-  let h=`<div class="jobs" id="jobs"></div>`+topNotice();if(tab==="plan")h+=viewPlan();else if(tab==="trip")h+=viewTrip();else h+=viewGuide();v.innerHTML=h;renderJobs()}
+  let h=`<div class="jobs" id="jobs"></div>`+topNotice();if(tab==="plan")h+=viewPlan();else if(tab==="trip")h+=viewTrip();/*LODGING*/else if(tab==="stay")h+=viewStay();/*/LODGING*/else h+=viewGuide();v.innerHTML=h;renderJobs()}
 
 /* ---- planner ---- */
 function chips(field,opts,multi,prefix,obj){obj=obj||S.form;const val=obj[field];return `<div class="chips">${opts.map(o=>{const on=multi?val.includes(o):val===o;return `<button class="chip" data-act="chip" data-field="${field}" data-val="${o}" data-multi="${multi?1:0}" aria-pressed="${on}">${prefix==="m_"?ico(o):""}${esc(t(prefix+o))}</button>`}).join("")}</div>`}
@@ -1013,7 +1052,7 @@ function viewDay(d,i){const c=`var(${DAYC[i%7]})`;const ds=dayStats(d);const b=b
 function viewBudget(st){const modes=Object.entries(st.byMode).sort((a,b)=>b[1].hi-a[1].hi);const max=Math.max(1,...modes.map(([,b])=>b.hi));const R=r=>`<span class="m"><b>${esc(fmtUSD(r[0]))}${r[0]!==r[1]?"–"+esc(fmtUSD(r[1])):""}</b></span>`;
   return `<div class="card"><h3>${ico("coin")}${esc(t("budgetTitle"))}</h3>
   <div class="grand"><span>${esc(t("total"))} · ${esc(t("perPerson"))}</span><b>${esc(fmtUSD(st.total[0]))} – ${esc(fmtUSD(st.total[1]))}</b></div>
-  <div class="totals"><div>${R(st.xfer)}<span class="k">${esc(t("intercity"))}</span></div><div>${R(st.local)}<span class="k">${esc(t("transport"))}</span></div><div>${R([st.entries,st.entries])}<span class="k">${esc(t("entries"))}</span></div><div>${R([st.food,st.food])}<span class="k">${esc(t("foodCost"))}</span></div></div>
+  <div class="totals">${""/*LODGING*/+(st.lodging&&(st.lodging.usd||Object.keys(st.lodging.points).length)?`<div>${R([st.lodging.usd,st.lodging.usd])}<span class="k">${esc(t("tabStay"))}${Object.keys(st.lodging.points).length?" + "+esc(Object.entries(st.lodging.points).map(([p,v])=>pts(v)+" "+(LPROGS.find(x=>x.id===p)||{name:p}).name).join(", ")):""}</span></div>`:"")/*/LODGING*/}<div>${R(st.xfer)}<span class="k">${esc(t("intercity"))}</span></div><div>${R(st.local)}<span class="k">${esc(t("transport"))}</span></div><div>${R([st.entries,st.entries])}<span class="k">${esc(t("entries"))}</span></div><div>${R([st.food,st.food])}<span class="k">${esc(t("foodCost"))}</span></div></div>
   <div class="lbl">${esc(t("byMode"))}</div><div class="bars">${modes.map(([k,b])=>{const m=b.x?b.mode:k;return `<div class="barrow"><span style="display:flex;gap:6px;align-items:center">${ico(m)}${esc(t("m_"+m))}${b.x?` <small class="muted">↔</small>`:""}</span><div class="track"><i class="${b.x?"c":""}" style="width:${Math.max(2,b.hi/max*100)}%"></i></div><span class="mono" style="font-size:11.5px">${esc(fmtUSD(b.lo))}–${esc(fmtUSD(b.hi))} · ${dur(b.min)}</span></div>`}).join("")}</div>
   ${st.unk?`<p class="note">* ${st.unk} ${S.lang==="en"?"local legs without a price yet (changed by you).":"trechos na cidade sem preço (alterados por você)."}</p>`:""}
   ${fxLegend(S.trip)}<p class="note">${esc(t("fxNote"))}</p></div>`}
@@ -1156,18 +1195,18 @@ $("gateForm").addEventListener("submit",async e=>{e.preventDefault();const code=
 async function loadFX(){const c=LS.get("atlas.fx.live",null);
   if(c&&c.t>Date.now()-12*3600e3&&c.d&&c.d.per){RATES={live:true,asOf:c.d.asOf||RATES.asOf,source:c.d.source,per:c.d.per};renderView();return}
   try{const r=await fetch("/api/fx");if(!r.ok)throw 0;const d=await r.json();if(!d||!d.per||!d.per.BRL)throw 0;LS.set("atlas.fx.live",{t:Date.now(),d});RATES={live:true,asOf:d.asOf||RATES.asOf,source:d.source,per:d.per};renderView()}catch{}}
-function exportTrip(){if(!S.trip)return;const data={app:"atlas-de-bolso",v:2,savedAt:Date.now(),trip:S.trip,details:S.details,guides:S.guides,home:S.home,form:S.form};
+function exportTrip(){if(!S.trip)return;const data={app:"atlas-de-bolso",v:2,savedAt:Date.now(),trip:S.trip,details:S.details,guides:S.guides,home:S.home,form:S.form/*LODGING*/,lodging:S.lodging/*/LODGING*/};
   const blob=new Blob([JSON.stringify(data)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);
   a.download=(S.trip.title||"roteiro").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\w]+/g,"-").toLowerCase()+".json";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
 function importTrip(file){const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||!d.trip||!Array.isArray(d.trip.days))throw 0;
-    S.trip=upgradeTrip(d.trip);S.details=d.details||{};S.guides=d.guides||{};S.home=Object.assign({from:"auto",custom:"",to:"",prio:"balanced",date:"",result:null},d.home||{});if(d.form)migrateForm(d.form);S.isExample=false;
+    S.trip=upgradeTrip(d.trip);S.details=d.details||{};/*LODGING*/S.lodging=normLodging(d.lodging);/*/LODGING*/S.guides=d.guides||{};S.home=Object.assign({from:"auto",custom:"",to:"",prio:"balanced",date:"",result:null},d.home||{});if(d.form)migrateForm(d.form);S.isExample=false;
     S.selected=null;S.baseIdx=-1;S.dayIdx=-1;S.suggestions=[];S.drawer=false;S.tab="trip";M.fitted=false;persist();renderAll();fitMap();animateRoute();toast(t("importOk"))}catch{toast(t("importBad"))}};rd.readAsText(file)}
 function archiveCurrent(){if(!S.trip||S.isExample)return false;const list=LS.get("atlas.v1.saved",[]);const sig=JSON.stringify(S.trip).length+":"+S.trip.title;
-  if(!list.some(x=>x.sig===sig))list.unshift({id:uid(),v:2,sig,name:S.trip.title,days:S.trip.days.length,savedAt:Date.now(),data:{trip:S.trip,details:S.details,guides:S.guides,home:S.home,form:S.form,isExample:false}});
+  if(!list.some(x=>x.sig===sig))list.unshift({id:uid(),v:2,sig,name:S.trip.title,days:S.trip.days.length,savedAt:Date.now(),data:{trip:S.trip,details:S.details,guides:S.guides,home:S.home,form:S.form,isExample:false/*LODGING*/,lodging:S.lodging/*/LODGING*/}});
   return LS.set("atlas.v1.saved",list.slice(0,30))}
 function newTrip(){const had=!S.isExample&&S.trip;archiveCurrent();
   S.form=blankForm(S.form);S.trip=prepTrip(sampleRaw(),{retime:true});S.isExample=true;S.details=sampleDetails(S.trip);S.guides=sampleGuides();
-  S.home={from:"auto",custom:"",to:"",prio:"balanced",date:"",result:null};S.route=blankRoute();S.suggestions=[];S.selected=null;S.baseIdx=-1;S.dayIdx=-1;S.confirmNew=false;S.welcome=false;
+  S.home={from:"auto",custom:"",to:"",prio:"balanced",date:"",result:null};S.route=blankRoute();S.suggestions=[];/*LODGING*/S.lodging=sampleLodging();/*/LODGING*/S.selected=null;S.baseIdx=-1;S.dayIdx=-1;S.confirmNew=false;S.welcome=false;
   S.tab="plan";M.fitted=false;persist();renderAll();fitMap();window.scrollTo&&window.scrollTo(0,0);toast(t(had?"newDoneSaved":"newDone"))}
 function topNotice(){if(S.confirmNew)return `<div class="notice"><div class="notice-txt"><b>${esc(t("newQ"))}</b><span>${esc(t(S.isExample?"newQEx":"newQSave"))}</span></div><div class="notice-act"><button class="btn primary" data-act="doNewTrip">${ico("plus")}${esc(t("newYes"))}</button><button class="btn ghost" data-act="cancelNew">${esc(t("cancel"))}</button></div></div>`;
   if(S.welcome&&S.trip&&!S.isExample)return `<div class="notice"><div class="notice-txt"><b>${esc(t("welcomeQ"))}</b><span>${esc(t("welcomeTxt",{t:S.trip.title}))}</span></div><div class="notice-act"><button class="btn primary" data-act="continueTrip">${esc(t("welcomeGo"))}</button><button class="btn" data-act="newTrip">${ico("plus")}${esc(t("newTrip"))}</button></div></div>`;
@@ -1179,7 +1218,7 @@ const PDFLIB_URL="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.
 function loadPdfLib(){if(window.PDFLib)return Promise.resolve();return new Promise((res,rej)=>{const s=document.createElement("script");s.src=PDFLIB_URL;s.onload=()=>res();s.onerror=()=>rej({code:"pdflib"});document.head.appendChild(s)})}
 const WIN1252="€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ";
 function pdfSafe(s){return String(s??"").normalize("NFC").replace(/[    ]/g," ").replace(/[→⟶➝➔]/g,"->").replace(/←/g,"<-").replace(/↔/g,"<->")
-  .replace(/₩/g,"KRW ").replace(/₹/g,"INR ").replace(/₫/g,"VND ").replace(/₺/g,"TRY ").replace(/₽/g,"RUB ").replace(/฿/g,"THB ").replace(/₱/g,"PHP ").replace(/₪/g,"ILS ").replace(/[‐‑‒]/g,"-").replace(/[\r]/g,"")
+  .replace(/₩/g,"KRW ").replace(/₹/g,"INR ").replace(/₫/g,"VND ").replace(/₺/g,"TRY ").replace(/₽/g,"RUB ").replace(/฿/g,"THB ").replace(/₱/g,"PHP ").replace(/₪/g,"ILS ").replace(/[‐‑‒]/g,"-").replace(/≈/g,"~").replace(/★/g,"*").replace(/[\r]/g,"")
   .replace(/[^\x09\x0A\x20-\x7E\xA1-\xFF]/g,c=>WIN1252.includes(c)?c:"")}
 const PDF_L={
 pt:{dossier:"DOSSIÊ DE VIAGEM",from:"DE",to:"PARA",days:"DIAS",stops:"PARADAS",countries:"PAÍSES",total:"TOTAL ESTIMADO",traveler:"VIAJANTE",start:"INÍCIO",issued:"EMITIDO EM",tbd:"a definir",
@@ -1281,7 +1320,7 @@ async function buildPDF(data){
     textC(b.city,cx,jy+36,F.disp,14,K.ink);const nd=tr.days.filter(d=>d.base===i).length;textC(((b.countryCode||"")+"  ·  "+nd+" "+(nd===1?t("day1"):t("daysUnit"))).trim(),cx,jy+50,F.mono,7.5,K.muted)});
   y=jy+70;
   sub(L.budget);ensure(150);
-  const rows=[[t("intercity"),st.xfer],[t("transport"),st.local],[t("entries"),[st.entries,st.entries]],[t("foodCost"),[st.food,st.food]]];const maxv=Math.max(1,...rows.map(r=>r[1][1]));
+  const rows=[/*LODGING*/...(st.lodging&&st.lodging.usd?[[t("tabStay"),[st.lodging.usd,st.lodging.usd]]]:[]),/*/LODGING*/[t("intercity"),st.xfer],[t("transport"),st.local],[t("entries"),[st.entries,st.entries]],[t("foodCost"),[st.food,st.food]]];const maxv=Math.max(1,...rows.map(r=>r[1][1]));
   rows.forEach(([k,r])=>{text(k,M,y+10,F.sans,9.5,K.ink);rrect(M+140,y+3,CW-140-120,8,4,{fill:K.bg});rrect(M+140,y+3,Math.max(8,(CW-260)*r[1]/maxv),8,4,{fill:k===t("intercity")?K.coral:K.accent});
     textR(r[0]===r[1]?fmtUSD(r[0]):fmtUSD(r[0])+" – "+fmtUSD(r[1]),W-M,y+10,F.mono,9.5,K.ink);y+=20});
   y+=4;rrect(M,y,CW,30,8,{fill:K.ink});text(L.grand+"  ·  "+L.perPerson,M+14,y+19,F.sans,9.5,K.white,.8);textR(fmtUSD(st.total[0])+" – "+fmtUSD(st.total[1]),W-M-14,y+20,F.monoB,13,K.white);y+=44;
@@ -1291,7 +1330,7 @@ async function buildPDF(data){
   // table of contents (page numbers filled at the end)
   const toc=[];tr.days.forEach((d,i)=>toc.push({label:t("day")+" "+(i+1)+" · "+(baseOf(d).city||"")+" — "+(d.theme||""),key:"day"+i}));
   countries.forEach(c=>toc.push({label:L.guide.charAt(0)+L.guide.slice(1).toLowerCase()+" · "+c,key:"guide:"+c}));
-  if(homeRes)toc.push({label:L.home,key:"home"});toc.push({label:L.pocket,key:"pocket"});
+  /*LODGING*/if(S.lodging&&S.lodging.offers.length)toc.push({label:t("lPdfTitle"),key:"lodging"});/*/LODGING*/if(homeRes)toc.push({label:L.home,key:"home"});toc.push({label:L.pocket,key:"pocket"});
   sub(L.toc);ensure(toc.length*17+10);const tocPage=page;const tocPos=toc.map(()=>0);
   toc.forEach((e,i)=>{let lab=pdfSafe(e.label);while(tw(lab,F.sans,9.5)>CW-60&&lab.length>4)lab=lab.slice(0,-2);if(lab!==pdfSafe(e.label))lab=lab.trimEnd()+"…";text(lab,M,y+10,F.sans,9.5,K.ink);
     tocPos[i]=y;y+=17});
@@ -1364,6 +1403,17 @@ async function buildPDF(data){
         const u=["maps","transit","ride","train","offline","other"].includes(a.use)?a.use:"other";text(t("use_"+u).toUpperCase(),x+12,y+31,F.mono,7,K.muted);let ly=y+44;wrap(a.why,F.sans,8.5,half-24).forEach(z=>{text(z,x+12,ly,F.sans,8.5,K.ink);ly+=11})});y+=ch+10}}
     if(g.sources&&g.sources.length){sub(L.sources);g.sources.forEach((s,i)=>{const lab=(i+1)+". "+(s.title||s.url);para(lab,M,CW,F.sans,8.5,K.ink,11);para(s.url,M+12,CW-12,F.mono,7,K.accent,9);y+=3})}});
 
+/*LODGING*/
+  if(S.lodging&&S.lodging.offers.length){newPage();at.lodging=pages.length;heading(t("tabStay").toUpperCase(),t("lPdfTitle"),K.accent);
+    tr.bases.forEach((b,bi)=>{const hs=groupHotels(bi);if(!hs.length)return;sub(b.city);
+      hs.slice(0,10).forEach(hh=>{const opts=hh.offers.slice().sort((a,c)=>(a._cost??1e12)-(c._cost??1e12));const hH=30+opts.length*13;ensure(hH+8);
+        rrect(M,y,CW,hH,8,{fill:K.white,stroke:K.line});text(hh.name,M+12,y+17,F.bold,10.5,K.ink);textR(brl(hh.best)+"  ·  "+usdOfBRL(hh.best),W-M-12,y+17,F.monoB,9.5,K.ink);let ly=y+32;
+        opts.forEach(o=>{const chosen=S.lodging.choice[bi]===o.id;const isBest=o===hh.bestOffer;circle(M+16,ly-3,2.8,chosen?K.coral:isBest?K.ok:K.line);
+          text(srcName(o.src),M+26,ly,F.sans,8.5,K.ink);text(o.points?pts(o.points)+(o.cash?" + "+brl(toBRL(o.cash,o.currency)):""):brl(toBRL(o.cash,o.currency)),M+150,ly,F.mono,8.5,K.ink);
+          const good=o._mil!=null&&o._mil>=(S.lodging.mil[o.prog||o.src]??20);text(o.points?"~ "+brl(o._cost)+(o._mil!=null?"  ·  "+brl(o._mil)+(S.lang==="en"?" per 1k":" por milheiro"):""):usdOfBRL(o._cost),M+300,ly,F.sans,8,o._mil!=null?(good?K.ok:K.bad):K.muted);
+          if(chosen)textR(t("lChosen").toUpperCase(),W-M-12,ly,F.monoB,7.5,K.coral);ly+=13});y+=hH+8})});
+    y+=4;para(t("lHow"),M,CW,F.ital,8.5,K.muted,11)}
+/*/LODGING*/
   /* ---------- getting home ---------- */
   if(homeRes){newPage();at.home=pages.length;heading(L.home,L.home===data.home.to?L.home:(data.home.to||data.form&&data.form.home||L.home),K.accent);
     const hf=(()=>{const h=data.home;if(h.from==="custom")return h.custom;if(!h.from||h.from==="auto"){const b=[...tr.bases].reverse().find(x=>!x.pending)||tr.bases[0];return b.start.name}if(String(h.from).startsWith("base:"))return (tr.bases[+h.from.slice(5)]||tr.bases[0]).start.name;const f=findStop(h.from);return f?f.stop.name:""})();
@@ -1398,9 +1448,9 @@ async function buildPDF(data){
 async function exportPDF(data){
   if(!data||!data.trip)return;if(S.pdfBusy)return;S.pdfBusy=true;toast(t("pdfMaking"));
   let bytes=null;const keep=S.trip;
-  try{await loadPdfLib();S.trip=upgradeTrip(data.trip);bytes=await buildPDF({...data,trip:S.trip})}
+  /*LODGING*/const keepLod=S.lodging;/*/LODGING*/try{await loadPdfLib();S.trip=upgradeTrip(data.trip);/*LODGING*/S.lodging=normLodging(data.lodging);/*/LODGING*/bytes=await buildPDF({...data,trip:S.trip})}
   catch(e){console.error(e);toast(t(e&&e.code==="pdflib"?"pdfLibFail":"pdfFail"));S.pdfBusy=false;S.trip=keep;return}
-  finally{S.trip=keep}
+  finally{S.trip=keep;/*LODGING*/S.lodging=keepLod;/*/LODGING*/}
   const name="atlas-"+(data.trip.title||"roteiro").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\w]+/g,"-").replace(/^-|-$/g,"").toLowerCase()+".pdf";
   try{const blob=new Blob([bytes],{type:"application/pdf"});const file=new File([blob],name,{type:"application/pdf"});
     const mobile=matchMedia("(pointer: coarse)").matches;
@@ -1409,6 +1459,153 @@ async function exportPDF(data){
   catch(e){toast(t("pdfFail"))}
   finally{S.pdfBusy=false}}
 
+/*LODGING*/
+/* ================= Hospedagem (lodging comparison with points) =================
+   Plano B: everything for this tab sits between LODGING markers; tools/plano-b.py strips them. */
+const LPROGS=[
+  {id:"azul",name:"Azul Fidelidade",site:"Azul Viagens",url:"https://www.azulviagens.com.br/",hotels:true,ref:16},
+  {id:"esfera",name:"Esfera",site:"Esfera Viagens",url:"https://www.esfera.com.vc/",hotels:true,ref:31},
+  {id:"livelo",name:"Livelo",site:"Livelo Viagens",url:"https://www.livelo.com.br/",hotels:true,ref:31},
+  {id:"accor",name:"ALL Accor",site:"ALL Accor",url:"https://all.accor.com/",hotels:true,ref:null},
+  {id:"smiles",name:"Smiles",site:"Smiles",url:"https://www.smiles.com.br/",hotels:null,ref:16},
+  {id:"latam",name:"LATAM Pass",site:"LATAM Pass",url:"https://latampass.latam.com/",hotels:null,ref:25.5}];
+const LCASH=[{id:"booking",name:"Booking.com"},{id:"google",name:"Google Hotéis"},{id:"airbnb",name:"Airbnb"},{id:"decolar",name:"Decolar",url:"https://www.decolar.com/hoteis/"}];
+const LSRC=[...LPROGS.map(p=>({id:p.id,name:p.site,kind:"points"})),...LCASH.map(c=>({id:c.id,name:c.name,kind:"cash"})),{id:"other",name:"Outro",kind:"cash"}];
+const srcName=id=>(LSRC.find(s=>s.id===id)||{name:id||"?"}).name;
+function accorRef(){const e=rateFor("EUR"),b=rateFor("BRL");return e&&b?Math.round(20/e*b*100)/100:120}
+function milRefs(){const o={};LPROGS.forEach(p=>o[p.id]=p.ref==null?accorRef():p.ref);return o}
+function blankLodging(){return{base:0,search:{},offers:[],mil:milRefs(),choice:{},view:"table",paste:"",src:"auto",manual:{hotel:"",src:"booking",value:"",cash:""}}}
+function normLodging(l){const b=blankLodging();if(!l||typeof l!=="object")return b;return{...b,...l,mil:{...b.mil,...(l.mil||{})},offers:Array.isArray(l.offers)?l.offers:[],choice:l.choice||{},search:l.search||{}}}
+const LDAY=864e5;
+function lodgingDates(bi){const tr=S.trip,f=S.form;const s=S.lodging.search[bi]||{};if(s.in||s.out)return{in:s.in||"",out:s.out||"",guests:s.guests||2,rooms:s.rooms||1};
+  let ci="",co="";if(f.date&&tr){const before=tr.days.filter(d=>d.base<bi).length,n=Math.max(1,tr.days.filter(d=>d.base===bi).length);const d0=new Date(f.date+"T12:00:00");if(!isNaN(d0)){ci=new Date(d0.getTime()+before*LDAY).toISOString().slice(0,10);co=new Date(d0.getTime()+(before+n)*LDAY).toISOString().slice(0,10)}}
+  return{in:ci,out:co,guests:s.guests||2,rooms:s.rooms||1}}
+function nightsOf(d){if(!d.in||!d.out)return null;const n=Math.round((new Date(d.out)-new Date(d.in))/LDAY);return n>0?n:null}
+function lodgingCity(bi){const b=S.trip&&S.trip.bases[bi];return b?(b.city+(b.country?", "+b.country:"")):""}
+function searchUrl(id,bi){const d=lodgingDates(bi),c=encodeURIComponent(lodgingCity(bi));
+  if(id==="booking")return `https://www.booking.com/searchresults.pt-br.html?ss=${c}${d.in?"&checkin="+d.in:""}${d.out?"&checkout="+d.out:""}&group_adults=${d.guests}&no_rooms=${d.rooms}&group_children=0&selected_currency=BRL`;
+  if(id==="airbnb")return `https://www.airbnb.com.br/s/${c}/homes?adults=${d.guests}${d.in?"&checkin="+d.in:""}${d.out?"&checkout="+d.out:""}`;
+  if(id==="google")return `https://www.google.com/travel/search?q=${encodeURIComponent("hotéis em "+lodgingCity(bi))}&hl=pt-BR&curr=BRL`;
+  const p=LPROGS.find(x=>x.id===id)||LCASH.find(x=>x.id===id);return p&&p.url}
+const deepSrc=id=>["booking","airbnb","google"].includes(id);
+function toBRL(v,cur){if(v==null)return null;cur=cur||"BRL";if(cur==="BRL")return v;const u=toUSD(v,cur),b=rateFor("BRL");return u!=null&&b?u*b:null}
+const brl=v=>v==null?"—":fmtCur(Math.round(v),"BRL");
+const usdOfBRL=v=>{const b=rateFor("BRL");return v==null||!b?"—":fmtUSD(v/b)};
+const pts=v=>Math.round(v).toLocaleString(locale())+" pts";
+function hotelKey(n){return String(n||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/\b(hotel|hoteis|hostel|pousada|the|by|resort|suites?|inn|apartments?|apart)\b/g," ").replace(/[^a-z0-9]+/g," ").trim().split(" ").filter(Boolean).slice(0,3).join(" ")||String(n||"?").toLowerCase()}
+function progOf(src,program){const s=(String(program||"")+" "+String(src||"")).toLowerCase();if(/azul/.test(s))return "azul";if(/smiles/.test(s))return "smiles";if(/latam/.test(s))return "latam";if(/livelo/.test(s))return "livelo";if(/esfera/.test(s))return "esfera";if(/accor|\ball\b/.test(s))return "accor";return null}
+function offerCost(o){const mil=S.lodging.mil;const cashPart=toBRL(o.cash,o.currency)||0;
+  if(o.points){const p=o.prog||o.src;const m=mil[p]!=null?mil[p]:20;return o.points/1000*m+cashPart}return toBRL(o.cash,o.currency)}
+function groupHotels(bi){const offers=S.lodging.offers.filter(o=>o.base===bi);const map=new Map();
+  offers.forEach(o=>{const k=hotelKey(o.hotel);if(!map.has(k))map.set(k,{key:k,name:o.hotel,area:o.area,rating:o.rating,offers:[]});const h=map.get(k);h.offers.push(o);if(!h.area&&o.area)h.area=o.area;if(!h.rating&&o.rating)h.rating=o.rating});
+  const list=[...map.values()];list.forEach(h=>{const cash=h.offers.filter(o=>!o.points).map(o=>toBRL(o.cash,o.currency)).filter(v=>v!=null);h.cashBest=cash.length?Math.min(...cash):null;
+    h.offers.forEach(o=>{o._cost=offerCost(o);o._mil=o.points&&h.cashBest!=null?(h.cashBest-(toBRL(o.cash,o.currency)||0))/(o.points/1000):null});
+    const costs=h.offers.map(o=>o._cost).filter(v=>v!=null);h.best=costs.length?Math.min(...costs):null;h.bestOffer=h.offers.find(o=>o._cost===h.best)});
+  return list.sort((a,b)=>(a.best??1e12)-(b.best??1e12))}
+function normOffers(d,bi,srcHint,nights){const arr=Array.isArray(d)?d:Array.isArray(d&&d.offers)?d.offers:[];const detected=d&&d.source;const out=[];
+  arr.slice(0,30).forEach(x=>{if(!x||!str(x.hotel||x.name))return;const hotel=str(x.hotel||x.name,90);const points=num(x.points);let cash=num(x.pointsCash);const cur=isoCur(x.currency)||"BRL";
+    let total=num(x.total);const pn=num(x.perNight);if(total==null&&pn!=null&&nights)total=pn*nights;
+    let src=srcHint&&srcHint!=="auto"?srcHint:null;if(!src){src=progOf(detected,x.program)||(LCASH.find(c=>String(detected||"").toLowerCase().includes(c.id))||{}).id||"other"}
+    const prog=points?(progOf(detected,x.program)||(LPROGS.some(p=>p.id===src)?src:null)):null;
+    if(points){out.push({id:"o"+uid(),base:bi,hotel,area:str(x.area,60),rating:num(x.rating),src,prog,points,cash:cash||0,currency:cur,cancel:x.cancel===true,breakfast:x.breakfast===true})}
+    if(total!=null&&!(points&&cash===total)){out.push({id:"o"+uid(),base:bi,hotel,area:str(x.area,60),rating:num(x.rating),src:points&&!LCASH.some(c=>c.id===src)?src:src,prog:null,points:null,cash:total,currency:cur,cancel:x.cancel===true,breakfast:x.breakfast===true})}});
+  return out}
+function lodgingPrompt(srcHint,bi,text){const d=lodgingDates(bi),n=nightsOf(d);
+  return `Você recebe resultados de busca de hospedagem ${text?"copiados de um site":"em print(s) de tela de um site"}${srcHint&&srcHint!=="auto"?` (fonte: ${srcName(srcHint)})`:""}. Cidade: ${lodgingCity(bi)}. Estadia: ${n?n+" noite(s)":"noites não informadas"}, ${d.guests} hóspede(s).
+Extraia TODAS as ofertas visíveis. Responda SOMENTE com JSON válido:
+{"source":"site ou programa detectado","nights":num|null,"offers":[{"hotel":str,"area":str|null,"rating":num|null,"total":num|null,"perNight":num|null,"currency":"BRL|USD|EUR|...","points":num|null,"pointsCash":num|null,"program":"Azul Fidelidade|Smiles|LATAM Pass|Livelo|Esfera|ALL Accor|outro"|null,"cancel":bool|null,"breakfast":bool|null}]}
+Regras: copie os valores exatamente como aparecem, sem inventar. "total" = preço em dinheiro da estadia inteira, se aparecer; "perNight" = preço por noite, se o site mostrar assim. Para resgate com pontos: "points" = pontos totais e "pointsCash" = parte em dinheiro (pontos + R$). Se o mesmo hotel tem preço em dinheiro e em pontos, coloque os dois campos na mesma oferta. "rating" = nota de avaliação. Máximo 25 ofertas.${text?"\n\nTEXTO COPIADO:\n"+text.slice(0,12000):""}`}
+async function lodgingRead(){const L=S.lodging,bi=L.base;const text=($("l-paste")||{}).value||"";const fileEl=$("l-files");const files=fileEl&&fileEl.files?[...fileEl.files].slice(0,4):[];
+  if(!text.trim()&&!files.length){toast(t("lNothing"));return}
+  let images=null;try{if(files.length)images=await prepImages(files)}catch{toast(t("lImgBad"));return}
+  try{const d=await ai("lodging",t("lReading"),lodgingPrompt(L.src,bi,text.trim()),{tier:"quick",task:"lodging",cache:false,images});
+    const n=nightsOf(lodgingDates(bi))||num(d&&d.nights);const offers=normOffers(d,bi,L.src,n);if(!offers.length){toast(t("lNone"));return}
+    const sig=o=>[o.base,hotelKey(o.hotel),o.src,o.points||0,Math.round(o.cash||0)].join("|");const have=new Set(L.offers.map(sig));const fresh=offers.filter(o=>!have.has(sig(o)));L.example=false;L.offers.push(...fresh);L.paste="";if(fileEl)fileEl.value="";persist();renderView();toast(t("lAdded",{n:fresh.length}))}
+  catch(e){if(!e.silent)toast(errMsg(e))}}
+async function prepImages(files){if(typeof streamClaude!=="function")return files;
+  const out=[];for(const f of files){const url=URL.createObjectURL(f);try{const img=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=url});
+    const sc=Math.min(1,1568/Math.max(img.naturalWidth,img.naturalHeight));const c=document.createElement("canvas");c.width=Math.round(img.naturalWidth*sc);c.height=Math.round(img.naturalHeight*sc);c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+    out.push({type:"image/jpeg",data:c.toDataURL("image/jpeg",.85).split(",")[1]})}finally{URL.revokeObjectURL(url)}}return out}
+function lodgingManual(){const m=S.lodging.manual,bi=S.lodging.base;const hotel=str(m.hotel,90);const val=num(String(m.value).replace(/\./g,"").replace(",","."));
+  if(!hotel||val==null){toast(t("lManualMissing"));return}const isP=LPROGS.some(p=>p.id===m.src);const extra=num(String(m.cash||"").replace(/\./g,"").replace(",","."))||0;
+  S.lodging.offers.push(isP?{id:"o"+uid(),base:bi,hotel,src:m.src,prog:m.src,points:val,cash:extra,currency:"BRL"}:{id:"o"+uid(),base:bi,hotel,src:m.src,prog:null,points:null,cash:val,currency:"BRL"});
+  S.lodging.manual={hotel:"",src:m.src,value:"",cash:""};persist();renderView()}
+function chooseOffer(id){const L=S.lodging,o=L.offers.find(x=>x.id===id);if(!o)return;const b=S.trip.bases[o.base];
+  if(L.choice[o.base]===id){delete L.choice[o.base];if(b&&b.start._orig!=null){b.start.name=b.start._orig;delete b.start._orig}}
+  else{L.choice[o.base]=id;if(b){if(b.start._orig==null)b.start._orig=b.start.name;b.start.name=o.hotel}}
+  persist();renderAll()}
+function lodgingSpend(){const L=S.lodging;const r={usd:0,points:{}};if(!L||!S.trip)return r;const b=rateFor("BRL");
+  Object.values(L.choice||{}).forEach(id=>{const o=L.offers.find(x=>x.id===id);if(!o)return;const c=toBRL(o.cash,o.currency)||0;if(b)r.usd+=c/b;if(o.points){const p=o.prog||o.src;r.points[p]=(r.points[p]||0)+o.points}});return r}
+function sampleLodging(){const L=blankLodging();L.example=true;const mk=(hotel,src,o)=>({id:"o"+uid(),base:0,hotel,area:o.area||null,rating:o.rating||null,src,prog:o.points?src:null,points:o.points||null,cash:o.cash||0,currency:"BRL"});
+  L.offers=[mk("Hotel Avenida Palace","booking",{cash:1840,area:"Restauradores",rating:8.9}),mk("Hotel Avenida Palace","azul",{points:62000,cash:180}),mk("Hotel Avenida Palace","esfera",{points:98000}),
+    mk("Lisboa Pessoa Hotel","booking",{cash:1290,area:"Chiado",rating:9.1}),mk("Lisboa Pessoa Hotel","livelo",{points:52000,cash:90}),
+    mk("Novotel Lisboa","booking",{cash:980,area:"Praça de Espanha",rating:8.4}),mk("Novotel Lisboa","accor",{points:7600}),mk("Novotel Lisboa","azul",{points:41000})];
+  L.search[0]={in:"",out:"",guests:2,rooms:1};return L}
+
+function viewStay(){if(typeof streamClaude!=="function"&&S.lodgingImg==null&&typeof sampleFn!=="undefined"&&sampleFn){S.lodgingImg="?";lodgingLimits().then(()=>{if(S.tab==="stay")renderView()})}const tr=S.trip;if(!tr)return `<div class="empty">${esc(t("needTrip"))}</div>`;const L=S.lodging;if(L.base>=tr.bases.length)L.base=0;const bi=L.base;const d=lodgingDates(bi);const n=nightsOf(d);
+  let h="";if(L.example)h+=`<div class="banner">${ico("info")}<span>${esc(t("lExample"))}</span></div>`;
+  h+=`<section class="hero" style="gap:10px"><div class="hero-code"><span>${esc(t("tabStay"))}</span></div><h2>${esc(t("lTitle"))} <em>${esc(tr.bases[bi].city)}</em></h2><p class="note">${esc(t("lIntro"))}</p>
+    ${tr.bases.length>1?`<div class="chips">${tr.bases.map((b,i)=>`<button class="chip" data-act="lBase" data-val="${i}" aria-pressed="${i===bi}">${esc(b.city)}</button>`).join("")}</div>`:""}
+    <div class="row"><div class="field"><label for="l-in">Check-in</label><input class="input" type="date" id="l-in" data-lfield="in" value="${esc(d.in)}"></div><div class="field"><label for="l-out">Check-out</label><input class="input" type="date" id="l-out" data-lfield="out" value="${esc(d.out)}"></div>
+    <div class="field" style="flex:0 0 auto;min-width:0"><span class="lbl">${esc(t("lGuests"))}</span><div class="stepper"><button data-act="lGuests" data-val="-1" aria-label="−">−</button><output>${d.guests}</output><button data-act="lGuests" data-val="1" aria-label="+">+</button></div></div></div>
+    <p class="note mono">${n?esc(t("lNights",{n})):esc(t("lNoDates"))}</p></section>`;
+  // step 1: search links
+  h+=`<div class="card"><h3>${ico("route")}${esc(t("lStep1"))}</h3><p class="note">${esc(t("lStep1Txt"))}</p>
+    <div class="lbl">${esc(t("lPoints"))}</div><div class="srcgrid">${LPROGS.map(p=>`<a class="srcbtn" href="${esc(searchUrl(p.id,bi))}" target="_blank" rel="noopener" data-act="lOpen" data-val="${p.id}"><b>${esc(p.site)}</b><small>${esc(p.name)}${p.hotels===null?" · "+esc(t("lCheck")):""}</small><span class="mono">${esc(t("lMilRef"))} ${esc(brl(L.mil[p.id]).replace(/\s/g," "))}</span></a>`).join("")}</div>
+    <div class="lbl">${esc(t("lCash"))}</div><div class="srcgrid">${LCASH.map(c=>`<a class="srcbtn cash" href="${esc(searchUrl(c.id,bi))}" target="_blank" rel="noopener" data-act="lOpen" data-val="${c.id}"><b>${esc(c.name)}</b><small>${deepSrc(c.id)?esc(t("lDeep")):esc(t("lCopy"))}</small></a>`).join("")}</div></div>`;
+  // step 2: import
+  const busy=S.jobs.has("lodging");
+  h+=`<div class="card"><h3>${ico("spark")}${esc(t("lStep2"))}</h3><p class="note">${esc(t("lStep2Txt"))}</p>
+    <div class="row"><div class="field"><label for="l-src">${esc(t("lFrom"))}</label><select class="input" id="l-src" data-lsel="src"><option value="auto">${esc(t("lAuto"))}</option>${LSRC.map(s=>`<option value="${s.id}" ${L.src===s.id?"selected":""}>${esc(s.name)}</option>`).join("")}</select></div>
+    <div class="field" id="l-files-wrap" ${S.lodgingImg===false?"hidden":""}><label for="l-files">${esc(t("lShots"))}</label><input class="input" type="file" id="l-files" accept="image/png,image/jpeg,image/webp" multiple></div></div>
+    <textarea class="input" id="l-paste" rows="3" placeholder="${esc(t("lPastePh"))}">${esc(L.paste)}</textarea>
+    <div class="row" style="align-items:center"><button class="btn primary" style="flex:none" data-act="lRead" ${busy?"disabled":""}>${ico("spark")}${esc(t("lReadBtn"))}</button><span class="note">${esc(t("lReadNote"))}</span></div>
+    <details class="manual" ${L.manualOpen?"open":""}><summary>${esc(t("lManual"))}</summary><div class="row"><input class="input" id="lm-hotel" data-lman="hotel" placeholder="${esc(t("lHotel"))}" value="${esc(L.manual.hotel)}">
+      <select class="input" id="lm-src" data-lman="src">${LSRC.map(s=>`<option value="${s.id}" ${L.manual.src===s.id?"selected":""}>${esc(s.name)}</option>`).join("")}</select></div>
+      <div class="row"><input class="input" id="lm-value" data-lman="value" inputmode="decimal" placeholder="${esc(LPROGS.some(p=>p.id===L.manual.src)?t("lPtsPh"):t("lBrlPh"))}" value="${esc(L.manual.value)}">${LPROGS.some(p=>p.id===L.manual.src)?`<input class="input" id="lm-cash" data-lman="cash" inputmode="decimal" placeholder="${esc(t("lPlusBrl"))}" value="${esc(L.manual.cash)}">`:""}<button class="btn" style="flex:none" data-act="lManual">${ico("plus")}${esc(t("add"))}</button></div></details></div>`;
+  // step 3: comparison
+  const hotels=groupHotels(bi);
+  h+=`<div class="card"><h3>${ico("coin")}${esc(t("lStep3"))}</h3>`;
+  if(!hotels.length)h+=`<p class="note">${esc(t("lEmpty"))}</p>`;
+  else{const srcs=[...new Set(hotels.flatMap(x=>x.offers.map(o=>o.src)))].sort((a,b)=>LSRC.findIndex(s=>s.id===a)-LSRC.findIndex(s=>s.id===b));
+    const cell=(hh,o)=>{if(!o)return `<td class="na">—</td>`;const best=o===hh.bestOffer;const chosen=L.choice[bi]===o.id;
+      const main=o.points?`${esc(pts(o.points))}${o.cash?` <small>+ ${esc(brl(toBRL(o.cash,o.currency)))}</small>`:""}`:esc(brl(toBRL(o.cash,o.currency)));
+      const sub=o.points?`≈ ${esc(brl(o._cost))}${o._mil!=null?` · <span class="${o._mil>=(L.mil[o.prog||o.src]??20)?"good":"bad"}">${esc(brl(o._mil))}/mil</span>`:""}`:esc(usdOfBRL(o._cost));
+      return `<td class="${best?"best":""}${chosen?" chosen":""}"><button class="cellbtn" data-act="lChoose" data-val="${o.id}" title="${esc(t("lChooseTip"))}"><b>${main}</b><span>${sub}</span>${chosen?`<i>${esc(t("lChosen"))}</i>`:""}</button><button class="cellx" data-act="lDel" data-val="${o.id}" aria-label="${esc(t("remove"))}">×</button></td>`};
+    h+=`<div class="ltable-wrap"><table class="ltable"><thead><tr><th>${esc(t("lHotel"))}</th>${srcs.map(s=>`<th>${esc(srcName(s))}</th>`).join("")}<th>${esc(t("lBest"))}</th></tr></thead><tbody>${hotels.map(hh=>`<tr><th scope="row"><b>${esc(hh.name)}</b>${hh.area||hh.rating?`<small>${esc([hh.area,hh.rating?"★ "+hh.rating:""].filter(Boolean).join(" · "))}</small>`:""}</th>${srcs.map(s=>{const os=hh.offers.filter(o=>o.src===s).sort((a,b)=>(a._cost??1e12)-(b._cost??1e12));return cell(hh,os[0])}).join("")}<td class="bestcol"><b>${esc(brl(hh.best))}</b><span>${esc(usdOfBRL(hh.best))} · ${esc(srcName(hh.bestOffer&&hh.bestOffer.src))}</span>${hh.bestOffer&&hh.bestOffer.points?`<em>${esc(t("lUsePts"))}</em>`:`<em class="cashv">${esc(t("lPayCash"))}</em>`}</td></tr>`).join("")}</tbody></table></div>`;
+    h+=`<div class="lcards">${hotels.map(hh=>`<div class="lcard"><header><b>${esc(hh.name)}</b><span>${esc(brl(hh.best))}<small>${esc(usdOfBRL(hh.best))}</small></span></header>${hh.area||hh.rating?`<small class="muted">${esc([hh.area,hh.rating?"★ "+hh.rating:""].filter(Boolean).join(" · "))}</small>`:""}
+      ${hh.offers.slice().sort((a,b)=>(a._cost??1e12)-(b._cost??1e12)).map(o=>`<div class="lopt${o===hh.bestOffer?" best":""}${L.choice[bi]===o.id?" chosen":""}"><button class="cellbtn" data-act="lChoose" data-val="${o.id}"><span class="src">${esc(srcName(o.src))}</span><b>${o.points?esc(pts(o.points))+(o.cash?" + "+esc(brl(toBRL(o.cash,o.currency))):""):esc(brl(toBRL(o.cash,o.currency)))}</b><span class="sub">${o.points?`≈ ${esc(brl(o._cost))}${o._mil!=null?` · <span class="${o._mil>=(L.mil[o.prog||o.src]??20)?"good":"bad"}">${esc(brl(o._mil))}/mil</span>`:""}`:esc(usdOfBRL(o._cost))}</span>${L.choice[bi]===o.id?`<i>${esc(t("lChosen"))}</i>`:""}</button><button class="cellx" data-act="lDel" data-val="${o.id}" aria-label="${esc(t("remove"))}">×</button></div>`).join("")}</div>`).join("")}</div>`;
+    h+=`<p class="note">${esc(t("lHow"))}</p><div class="row" style="justify-content:flex-end"><button class="btn ghost" style="flex:none" data-act="lClear">${esc(t("lClear"))}</button></div>`}
+  h+=`</div>`;
+  // milheiro settings
+  h+=`<details class="card mil"><summary><h3 style="display:inline-flex">${ico("coin")}${esc(t("lMilTitle"))}</h3></summary><p class="note">${esc(t("lMilTxt"))}</p><div class="milgrid">${LPROGS.map(p=>`<label class="field"><span class="lbl">${esc(p.name)}</span><input class="input" id="mil-${p.id}" data-mil="${p.id}" inputmode="decimal" value="${esc(String(L.mil[p.id]).replace(".",","))}"></label>`).join("")}</div>
+    <div class="row" style="align-items:center"><span class="note" style="flex:1">${esc(t("lMilSrc"))}</span><button class="btn ghost" style="flex:none" data-act="lMilReset">${esc(t("fxReset"))}</button></div></details>`;
+  return h}
+function lodgingEvent(act,val,a){const L=S.lodging;switch(act){
+  case "lBase":L.base=+val;persist();renderView();return true;
+  case "lGuests":{const d=lodgingDates(L.base);L.search[L.base]={...d,guests:Math.max(1,Math.min(10,d.guests+Number(val)))};persist();renderView();return true}
+  case "lRead":lodgingRead();return true;case "lManual":lodgingManual();return true;
+  case "lChoose":chooseOffer(val);return true;
+  case "lDel":L.offers=L.offers.filter(o=>o.id!==val);Object.keys(L.choice).forEach(k=>{if(L.choice[k]===val)delete L.choice[k]});persist();renderView();return true;
+  case "lClear":L.offers=L.offers.filter(o=>o.base!==L.base);delete L.choice[L.base];L.example=false;persist();renderView();return true;
+  case "lMilReset":L.mil=milRefs();persist();renderView();return true}
+  return false}
+function lodgingOpen(id){if(deepSrc(id))return;const d=lodgingDates(S.lodging.base);const txt=lodgingCity(S.lodging.base)+(d.in?" · "+d.in+" → "+d.out:"")+" · "+d.guests+" "+t("lGuests").toLowerCase();try{navigator.clipboard.writeText(txt).then(()=>toast(t("lCopied",{t:txt})),()=>{})}catch{}}
+function lodgingInput(el){const L=S.lodging;if(!L)return;
+  if(el.dataset.lfield){const d=lodgingDates(L.base);L.search[L.base]={...d,[el.dataset.lfield]:el.value};persist();return true}
+  if(el.dataset.lman){L.manual[el.dataset.lman]=el.value;persist();return true}
+  if(el.id==="l-paste"){L.paste=el.value;return true}
+  if(el.dataset.mil){const v=num(String(el.value).replace(",","."));if(v!=null&&v>0){L.mil[el.dataset.mil]=v;persist()}return true}
+  return false}
+document.addEventListener("toggle",e=>{if(S.lodging&&e.target&&e.target.classList&&e.target.classList.contains("manual"))S.lodging.manualOpen=e.target.open},true);
+function lodgingChange(el){const L=S.lodging;if(el.dataset.lsel==="src"){L.src=el.value;persist();return true}if(el.dataset.lman==="src"){L.manual.src=el.value;persist();renderView();return true}if(el.dataset.lfield){renderView();return true}if(el.dataset.mil){renderView();return true}return false}
+async function lodgingLimits(){if(typeof streamClaude==="function")return;try{const lim=sampleFn&&sampleFn.limits?await sampleFn.limits():null;S.lodgingImg=!!(lim&&lim.images)}catch{S.lodgingImg=false}}
+/*/LODGING*/
+/*LODGING*/
+document.addEventListener("click",e=>{const a=e.target.closest('a[data-act="lOpen"]');if(a){lodgingOpen(a.dataset.val);return}const b=e.target.closest("button[data-act]");if(b&&/^l[A-Z]/.test(b.dataset.act)&&S.lodging)lodgingEvent(b.dataset.act,b.dataset.val,b)});
+document.addEventListener("input",e=>{if(S.lodging)lodgingInput(e.target)});
+document.addEventListener("change",e=>{if(S.lodging)lodgingChange(e.target)});
+/*/LODGING*/
 /* ================= events ================= */
 document.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(!a||a.tagName==="SELECT"||a.tagName==="A")return;const act=a.dataset.act,val=a.dataset.val;const F=S.form;
   switch(act){
@@ -1439,19 +1636,19 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(
   case "suggest":suggestPlaces();break;
   case "addSugg":{const s=S.suggestions.find(x=>x._id===val);if(!s)return;const di=Number(($("sd-"+val)||{}).value);S.suggestions=S.suggestions.filter(x=>x._id!==val);insertStop(s,Number.isFinite(di)?di:S.trip.days.findIndex(d=>d.base===s.base));break}
   case "copyTrip":if(S.trip)copyText(tripText());break;
-  case "pdfCurrent":exportPDF({trip:S.trip,details:S.details,guides:S.guides,home:S.home,form:S.form,isExample:S.isExample});break;
-  case "pdfSaved":{const it=LS.get("atlas.v1.saved",[]).find(x=>x.id===val);if(!it)return;const d=it.data||{};exportPDF({trip:d.trip,details:d.details||{},guides:d.guides||(d.guide?{[d.guide.country]:d.guide}:{}),home:d.home||{},form:d.form||{},isExample:!!d.isExample});break}
+  case "pdfCurrent":exportPDF({trip:S.trip,details:S.details,guides:S.guides,home:S.home,form:S.form,isExample:S.isExample/*LODGING*/,lodging:S.lodging/*/LODGING*/});break;
+  case "pdfSaved":{const it=LS.get("atlas.v1.saved",[]).find(x=>x.id===val);if(!it)return;const d=it.data||{};exportPDF({trip:d.trip,details:d.details||{},guides:d.guides||(d.guide?{[d.guide.country]:d.guide}:{}),home:d.home||{},form:d.form||{},isExample:!!d.isExample/*LODGING*/,lodging:d.lodging/*/LODGING*/});break}
   case "newTrip":S.confirmNew=true;S.welcome=false;S.drawer=false;renderDrawer();if(S.tab==="map"){S.tab="trip";$("app").dataset.tab="trip";renderTabs()}renderView();window.scrollTo&&window.scrollTo(0,0);break;
   case "cancelNew":S.confirmNew=false;renderView();break;
   case "doNewTrip":newTrip();break;
   case "continueTrip":S.welcome=false;LS.set("atlas.lastActive",Date.now());renderView();break;
-  case "saveTrip":{if(!S.trip)return;const list=LS.get("atlas.v1.saved",[]);list.unshift({id:uid(),v:2,name:S.trip.title,days:S.trip.days.length,savedAt:Date.now(),data:{trip:S.trip,details:S.details,guides:S.guides,home:S.home,form:S.form,isExample:S.isExample}});
+  case "saveTrip":{if(!S.trip)return;const list=LS.get("atlas.v1.saved",[]);list.unshift({id:uid(),v:2,name:S.trip.title,days:S.trip.days.length,savedAt:Date.now(),data:{trip:S.trip,details:S.details,guides:S.guides,home:S.home,form:S.form,isExample:S.isExample/*LODGING*/,lodging:S.lodging/*/LODGING*/}});
     LS.set("atlas.v1.saved",list.slice(0,30))?toast(t("savedToast")):toast(t("e_generic"));renderDrawer();break}
   case "drawer":S.drawer=true;S.usagePop=false;renderDrawer();break;case "usage":S.usagePop=true;S.drawer=false;renderDrawer();break;
   case "closeDrawer":S.drawer=false;S.usagePop=false;S.confirmDel=null;renderDrawer();break;
   case "askDel":S.confirmDel=val;renderDrawer();break;case "cancelDel":S.confirmDel=null;renderDrawer();break;
   case "delSaved":LS.set("atlas.v1.saved",LS.get("atlas.v1.saved",[]).filter(x=>x.id!==val));S.confirmDel=null;renderDrawer();break;
-  case "openSaved":{const it=LS.get("atlas.v1.saved",[]).find(x=>x.id===val);if(!it)return;const d=it.data;S.trip=upgradeTrip(d.trip);S.details=d.details||{};S.guides=d.guides||(d.guide?{[d.guide.country]:d.guide}:{});
+  case "openSaved":{const it=LS.get("atlas.v1.saved",[]).find(x=>x.id===val);if(!it)return;const d=it.data;S.trip=upgradeTrip(d.trip);S.details=d.details||{};/*LODGING*/S.lodging=normLodging(d.lodging);/*/LODGING*/S.guides=d.guides||(d.guide?{[d.guide.country]:d.guide}:{});
     S.home=Object.assign({from:"auto",custom:"",to:"",prio:"balanced",date:"",result:null},d.home||{});if(S.home.from==="start")S.home.from="auto";migrateForm(JSON.parse(JSON.stringify(d.form||{})));S.isExample=!!d.isExample;
     S.selected=null;S.baseIdx=-1;S.dayIdx=-1;S.suggestions=[];S.drawer=false;S.tab="trip";M.fitted=false;persist();renderAll();fitMap();animateRoute();break}
   case "exportTrip":exportTrip();break;
@@ -1471,7 +1668,7 @@ document.addEventListener("change",e=>{const el=e.target;if(el.id==="importFile"
 document.addEventListener("submit",e=>{const f=e.target;if(f.dataset.form==="add"){e.preventDefault();addPlace($("f-add").value)}});
 
 /* ================= boot ================= */
-loadState();initMap();renderAll();checkGate();loadFX();registerSW();
+loadState();/*LODGING*/if(!S.lodging)S.lodging=blankLodging();/*/LODGING*/initMap();renderAll();checkGate();loadFX();registerSW();
 </script>
 </body>
 </html>

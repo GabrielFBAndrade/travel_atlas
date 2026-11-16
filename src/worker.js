@@ -31,6 +31,7 @@ const TASKS = {
   suggest:  { tier: "fast", maxTokens: 3000 },               // sugerir atrações
   locate:   { tier: "fast", maxTokens: 1500 },               // localizar um lugar digitado
   pick:     { tier: "fast", maxTokens: 1200 },               // "me surpreenda" sem destino
+  lodging:  { tier: "fast", maxTokens: 6000, images: 4 },    // aba Hospedagem: lê prints/texto de resultados
 };
 
 /* Os modelos 5.5 "pensam" antes de responder (por padrão em esforço alto), e esse raciocínio
@@ -109,6 +110,14 @@ async function claude(request, env) {
   if (!task) return json({ error: "bad_request", message: "Tarefa desconhecida." }, 400);
   if (!prompt.trim() || prompt.length > MAX_PROMPT_CHARS) return json({ error: "bad_request", message: "Pedido vazio ou grande demais." }, 400);
 
+  // Prints de tela (só nas tarefas que aceitam imagens): JPEG/PNG/WebP em base64, até 4, ~1,5 MB cada.
+  let images = [];
+  if (Array.isArray(body.images) && body.images.length) {
+    if (!task.images) return json({ error: "bad_request", message: "Esta tarefa não aceita imagens." }, 400);
+    images = body.images.slice(0, task.images).filter(im => im && /^image\/(jpeg|png|webp)$/.test(im.type) && typeof im.data === "string" && im.data.length < 2200000);
+    if (!images.length) return json({ error: "bad_request", message: "Imagens inválidas." }, 400);
+  }
+
   const model = task.tier === "main"
     ? (env.MODEL_MAIN || "claude-sonnet-5-5")
     : (env.MODEL_FAST || "claude-haiku-5-5");
@@ -118,7 +127,9 @@ async function claude(request, env) {
     max_tokens: task.maxTokens,
     stream: true,
     system: task.search ? SYSTEM_SEARCH : SYSTEM,
-    messages: [{ role: "user", content: prompt }],
+    messages: [{ role: "user", content: images.length
+      ? [...images.map(im => ({ type: "image", source: { type: "base64", media_type: im.type, data: im.data } })), { type: "text", text: prompt }]
+      : prompt }],
   };
   if (task.search) payload.tools = [{ type: "web_search_20250305", name: "web_search", max_uses: task.search }];
 
